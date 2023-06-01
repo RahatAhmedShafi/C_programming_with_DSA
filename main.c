@@ -332,9 +332,70 @@
 //
 //    }
 
+        /* Insertion Sort */
 
 
+//    void function(int *arr,int n){
+//           for(int i=0;i<n;i++){
+//            printf("%d ",arr[i]);
+//           }
+//           printf("\n");
+//
+//    }
+//
+//    void InsertionSort(int *arr, int n){
+//        int j,key;
+//
+//        for(int i=1;i<=n-1;i++){
+//            key=arr[i];
+//            j=i-1;
+//
+//            while(j>=0 && arr[j]>key){
+//                    arr[j+1]=arr[j];
+//                    j--;
+//            }
+//            arr[j+1]=key;
+//        }
+//    }
+//    int main(){
+//        int arr[]={4,2,17,55,8,1};
+//        int n=6;
+//        function(arr,n);
+//        InsertionSort(arr,n);
+//        function(arr,n);
+//        return 0;
+//    }
 
+        /* Selection Sort*/
+
+    void function(int *arr,int n){
+        for(int i=0;i<n;i++){
+            printf("%d ",arr[i]);
+        }
+        printf("\n");
+    }
+    void SelectionSort(int *arr,int n){
+        for(int i=0;i<n-1;i++){
+                int indexMin=i;
+            for(int j=i+1;j<n;j++){
+                if(arr[j]<arr[indexMin]){
+                    indexMin=j;
+                }
+            }
+            int temp=arr[i];
+            arr[i]=arr[indexMin];
+            arr[indexMin]=temp;
+        }
+    }
+
+    int main(){
+        int arr[]={4,2,17,1,8,5};
+        int n=6;
+        function(arr,n);
+        SelectionSort(arr,n);
+        function(arr,n);
+        return 0;
+    }
 
 
 
