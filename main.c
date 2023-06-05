@@ -426,27 +426,7 @@
 
 
 
-//
-//    int LinearFunction(int *arr,int size,int element,int count){
-//
-//        for(int i=0;i<size;i++){
-//            if(arr[i]==element){
-//                count++;
-//                return count;
-//            }
-//        }
-//        return count;
-//
-//    }
-//    int main(){
-//        int arr[]={10,20,30,40,40};
-//        int size=sizeof(arr)/sizeof(int);
-//        int element =40;
-//        int count=0;
-//        int linearSearch=LinearFunction(arr,size,element,count);
-//        //printf("%d %d",element, linearSearch);
-//        printf("%d",count);
-//    }
+
 
               //// Count Multiple element
 
@@ -468,22 +448,89 @@
         /* Multiple Value Multiple Index*/
 
 
-     int main(){
+//     int main(){
+//
+//            int arr[]={10,20,30,30,40};
+//            int n=5;
+//            int search=30;
+//            int count=0;
+//            for(int i=0;i<n;i++){
+//                if(arr[i]==search){
+//                    count++;
+//                    printf("The %d element was found at %d\n",search ,i);
+//
+//                }
+//            }
+//             printf("Total element is %d",count);
+//
+//        }
 
-            int arr[]={10,20,30,30,40};
-            int n=5;
-            int search=30;
-            int count=0;
-            for(int i=0;i<n;i++){
-                if(arr[i]==search){
-                    count++;
-                    printf("The %d element was found at %d\n",search ,i);
+             /* Multiple Value Multiple Index with void function*/
 
-                }
+
+//    void LinearFunction(int *arr,int size,int element,int count){
+//
+//        for(int i=0;i<size;i++){
+//            if(arr[i]==element){
+//                   count++;
+//                   printf("The %d element was found at %d\n",element,i);
+//
+//
+//            }
+//
+//        }
+//        printf("Total element is %d",count);
+//
+//    }
+//
+//
+//    int main(){
+//        int arr[]={10,20,40,40,40};
+//        int size=sizeof(arr)/sizeof(int);
+//        int element =40;
+//        int count=0;
+//        LinearFunction(arr,size,element,count);
+//
+//
+//
+//
+//    }
+
+
+
+        /* Binary Search */
+
+    int BinaryFunction(int arr[],int size ,int element){
+        int low=0;
+        int high=size-1;
+
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(arr[mid]==element){
+                return mid;
             }
-             printf("Total element is %d",count);
-
+            if(arr[mid]<element){
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
         }
+        return -1;
+    }
+    int main(){
+        int arr[]={10,20,30,40,50,60,70};
+        int size=sizeof(arr)/sizeof(int);
+        int element=70;
+        int BinarySearch=BinaryFunction(arr,size,element);
+        printf("%d",BinarySearch);
+        return 0;
+    }
+
+
+
+
+
 
 
 
