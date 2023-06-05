@@ -368,34 +368,125 @@
 
         /* Selection Sort*/
 
-    void function(int *arr,int n){
-        for(int i=0;i<n;i++){
-            printf("%d ",arr[i]);
-        }
-        printf("\n");
-    }
-    void SelectionSort(int *arr,int n){
-        for(int i=0;i<n-1;i++){
-                int indexMin=i;
-            for(int j=i+1;j<n;j++){
-                if(arr[j]<arr[indexMin]){
-                    indexMin=j;
+//    void function(int *arr,int n){
+//        for(int i=0;i<n;i++){
+//            printf("%d ",arr[i]);
+//        }
+//        printf("\n");
+//    }
+//    void SelectionSort(int *arr,int n){
+//        for(int i=0;i<n-1;i++){
+//                int indexMin=i;
+//            for(int j=i+1;j<n;j++){
+//                if(arr[j]<arr[indexMin]){
+//                    indexMin=j;
+//                }
+//            }
+//            int temp=arr[i];
+//            arr[i]=arr[indexMin];
+//            arr[indexMin]=temp;
+//        }
+//    }
+//
+//    int main(){
+//        int arr[]={4,2,17,1,8,5};
+//        int n=6;
+//        function(arr,n);
+//        SelectionSort(arr,n);
+//        function(arr,n);
+//        return 0;
+//    }
+
+        /* Linear search */
+
+//    int LinearFunction(int *arr,int size,int element){
+//        for(int i=0;i<size;i++){
+//            if(arr[i]==element ){
+//
+//                return i;
+//
+//
+//            }
+//
+//        }
+//
+//        return -1;
+//    }
+//    int main(){
+//        int arr[]={4,56,7,28,87,3,2};
+//        int size=sizeof(arr)/sizeof(int);
+//
+//        int element =56;
+//        int linearSearch=LinearFunction(arr,size,element);
+//        printf(" The %d element was found at %d index",element,linearSearch);
+//
+//    }
+
+
+
+
+
+//
+//    int LinearFunction(int *arr,int size,int element,int count){
+//
+//        for(int i=0;i<size;i++){
+//            if(arr[i]==element){
+//                count++;
+//                return count;
+//            }
+//        }
+//        return count;
+//
+//    }
+//    int main(){
+//        int arr[]={10,20,30,40,40};
+//        int size=sizeof(arr)/sizeof(int);
+//        int element =40;
+//        int count=0;
+//        int linearSearch=LinearFunction(arr,size,element,count);
+//        //printf("%d %d",element, linearSearch);
+//        printf("%d",count);
+//    }
+
+              //// Count Multiple element
+
+//    int main(){
+//
+//        int arr[]={10,20,30,30,30,40};
+//        int n=5;
+//        int search=30;
+//        int count=0;
+//        for(int i=0;i<n;i++){
+//            if(arr[i]==search){
+//
+//                count++;
+//            }
+//        }
+//        printf("%d",count);
+//    }
+
+        /* Multiple Value Multiple Index*/
+
+
+     int main(){
+
+            int arr[]={10,20,30,30,40};
+            int n=5;
+            int search=30;
+            int count=0;
+            for(int i=0;i<n;i++){
+                if(arr[i]==search){
+                    count++;
+                    printf("The %d element was found at %d\n",search ,i);
+
                 }
             }
-            int temp=arr[i];
-            arr[i]=arr[indexMin];
-            arr[indexMin]=temp;
-        }
-    }
+             printf("Total element is %d",count);
 
-    int main(){
-        int arr[]={4,2,17,1,8,5};
-        int n=6;
-        function(arr,n);
-        SelectionSort(arr,n);
-        function(arr,n);
-        return 0;
-    }
+        }
+
+
+
 
 
 
