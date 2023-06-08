@@ -500,35 +500,143 @@
 
         /* Binary Search */
 
-    int BinaryFunction(int arr[],int size ,int element){
-        int low=0;
-        int high=size-1;
+//    int BinaryFunction(int arr[],int size ,int element){
+//        int low=0;
+//        int high=size-1;
+//
+//        while(low<=high){
+//            int mid=(low+high)/2;
+//            if(arr[mid]==element){
+//                return mid;
+//            }
+//            if(arr[mid]<element){
+//                low=mid+1;
+//            }
+//            else{
+//                high=mid-1;
+//            }
+//        }
+//        return -1;
+//    }
+//    int main(){
+//        int arr[]={10,20,30,40,50,60,70};
+//        int size=sizeof(arr)/sizeof(int);
+//        int element=70;
+//        int BinarySearch=BinaryFunction(arr,size,element);
+//        printf("%d",BinarySearch);
+//        return 0;
+//    }
 
-        while(low<=high){
-            int mid=(low+high)/2;
-            if(arr[mid]==element){
-                return mid;
+
+    // Linear Search
+
+//    int LinearFunction(int *arr,int n,int element){
+//        for(int i=0;i<n;i++){
+//            if(arr[i]==element){
+//
+//                return i;
+//
+//            }
+//
+//        }
+//        return -1;
+//    }
+//    int main(){
+//        int arr[]={4,2,5,56,77,8};
+//        int n=6;
+//        int element=2;
+//        int LinearSearch=LinearFunction(arr,n,element);
+//        printf("%d",LinearSearch);
+//        return 0;
+//
+//    }
+
+        //Linear Search
+
+//    int LinearFunction(int *arr,int size,int element){
+//        for(int i=0;i<size;i++){
+//            if(arr[i]==element){
+//                return i;
+//            }
+//
+//        }
+//        return -1;
+//    }
+//    int main(){
+//        int arr[]={10,30,50,20,60,40};
+//        int size=sizeof(arr)/sizeof(int);
+//        int element;
+//        scanf("%d",&element);
+//        int LinearSearch=LinearFunction(arr,size,element);
+//        printf("%d",LinearSearch);
+//    }
+
+
+            // Binary Search
+//    int BinaryFunction(int *arr,int size,int element){
+//        int low=0;
+//        int high=size-1;
+//        int mid;
+//        while(low<=high){
+//                mid=(low+high)/2;
+//            if(arr[mid]==element){
+//               return mid;
+//            }
+//            if(arr[mid]<element){
+//                low=mid+1;
+//            }
+//            else{
+//                high=mid-1;
+//            }
+//        }
+//        return -1;
+//    }
+//    int main(){
+//        int arr[]={10,20,30,40,50,60};
+//        int size=sizeof(arr)/sizeof(int);
+//        int element;
+//        scanf("%d",&element);
+//        int BinarySearch=BinaryFunction(arr,size,element);
+//        printf("%d",BinarySearch);
+//    }
+
+
+
+
+            /* Ternary Search*/
+
+    int TernaryFunction(int *arr,int size,int element){
+        int l=0;
+        int r=size-1;
+        while(l<=r){
+            int mid1=l+((r-l)/3);
+            int mid2=r-(r-l)/3;
+            if(element==arr[mid1]) {
+                return mid1;
             }
-            if(arr[mid]<element){
-                low=mid+1;
+            if(element==arr[mid2]){
+                return mid2;
+            }
+            if(element<arr[mid1]){
+                r=mid1-1;
+            }
+            if(element>arr[mid2]){
+                l=mid2+1;
             }
             else{
-                high=mid-1;
+                l=mid1+1;
+                r=mid2-1;
             }
         }
         return -1;
     }
     int main(){
-        int arr[]={10,20,30,40,50,60,70};
+        int arr[]={10,20,30,40,50,60};
         int size=sizeof(arr)/sizeof(int);
-        int element=70;
-        int BinarySearch=BinaryFunction(arr,size,element);
-        printf("%d",BinarySearch);
-        return 0;
+        int element=60;
+        int TernarySearch=TernaryFunction(arr,size,element);
+        printf("%d",TernarySearch);
     }
-
-
-
 
 
 
