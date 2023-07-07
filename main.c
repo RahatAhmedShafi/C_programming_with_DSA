@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 //
 //    void mFunction(){
 //        printf("You are eligible\n");
@@ -1044,46 +1045,540 @@
 
 
             //Searching & Sorting :	Find a Fixed Point (Value equal to index) in a given array
+//
+//    #define SIZE 10000
+//
+//        struct Result
+//        {
+//            int numberOfMatches;
+//            int indices[SIZE];
+//        };
+//
+//
+//
+//        struct Result linearSearchFunctional(int arr[], int n)
+//        {
+//           struct Result result;
+//            result.numberOfMatches = 1;
+//
+//            for(int i=1; i<=n; i++)
+//            {
+//                if(arr[i]==i)
+//                {
+//                    result.indices[result.numberOfMatches] = i;
+//                    result.numberOfMatches++;
+//
+//                }
+//            }
+//             return result;
+//        }
+//
+//        int main()
+//        {
+//            int n;
+//            scanf("%d", &n);
+//            int arr[n];
+//            for(int i=1; i<=n; i++)
+//                scanf("%d", &arr[i]);
+//
+//         struct  Result result = linearSearchFunctional(arr, n);
+//            for(int i=1; i<result.numberOfMatches; i++)
+//            {
+//                printf("%d ", result.indices[i]);
+//            }
+//            return  0;
+//        }
 
-                #define SIZE 10000
-
-        struct Result
-        {
-            int numberOfMatches;
-            int indices[SIZE];
-        };
 
 
+            // Two Sum
+        //---------------
+//#include<stdbool.h>
+//    bool twoSumPossible(int arr[], int n, int key)
+//    {
+//        for(int i=0; i<n; i++)
+//        {
+//            /// int need = key - arr[i];
+//
+//            for(int j=i+1; j<n; j++)
+//            {
+//                if(arr[i]+arr[j] == key)
+//                    return true;
+//            }
+//        }
+//        return false;
+//    }
 
-        struct Result linearSearchFunctional(int arr[], int n)
-        {
-           struct Result result;
-            result.numberOfMatches = 1;
+//    int twoSumCounter(int arr[], int n, int key)
+//    {
+//        int counter = 0;
+//
+//        for(int i=0; i<n; i++)
+//        {
+//            for(int j=i+1; j<n; j++)
+//            {
+//                if(arr[i]+arr[j] == key)
+//                {
+//                    /// printf("%d %d\n", i , j);
+//                    counter++;
+//                }
+//            }
+//        }
+//        return counter;
+//    }
+//    int main()
+//    {
+//        int n;
+//        scanf("%d", &n);
+//        int arr[n];
+//        for(int i=0; i<n; i++)
+//            scanf("%d", &arr[i]);
+//        int key;
+//        scanf("%d", &key);
+//        int result =twoSumPossible(arr,n,key);
+//        //int result = twoSumCounter(arr, n, key);
+//        if(result==true){
+//            printf("Yes");
+//        }
+//        else{
+//            printf("No");
+//        }
+//       // printf("%d\n", result);
+//        return 0;
+//    }
+//
+//#include<stdbool.h>
+//    bool TwoSumFunction(int *arr,int size,int key){
+//
+//
+//        for(int i=0;i<size;i++){
+//            for(int j=i+1;j<size;j++){
+//                if(arr[i]+arr[j]==key){
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+//
+//
+//    int main(){
+//        int size;
+//        scanf("%d",&size);
+//        int arr[size];
+//        for(int i=0;i<size;i++){
+//            scanf("%d",&arr[i]);
+//        }
+//        int key;
+//        scanf("%d",&key);
+//        int twosum=TwoSumFunction(arr,size,key);
+//        if(twosum==true){
+//            printf("Yes");
+//        }
+//        else{
+//            printf("No");
+//        }
+//
+//    }
 
-            for(int i=1; i<=n; i++)
-            {
-                if(arr[i]==i)
-                {
-                    result.indices[result.numberOfMatches] = i;
-                    result.numberOfMatches++;
 
-                }
-            }
-             return result;
+//int bubbleSort(int arr[], int size){
+//    for (int i = 0; i < size-1; i++){
+//
+//    // Since, after each iteration righmost i elements are sorted
+//    for (int j = 0; j < size-i-1; j++) if (arr[j] > arr[j+1])
+//        {
+//            int temp = arr[j]; // swap the element
+//            arr[j] = arr[j+1];
+//            arr[j+1] = temp;
+//        }
+//    }
+//}
+
+            // find repeating element
+//   int findRepeating( int *arr,int n){
+//        for(int i=0;i<n;i++){
+//                int flag=0;
+//            while(i<n-1 && arr[i]==arr[i+1]){
+//                flag=1;
+//                i++;
+//            }
+//            if(flag){
+//                printf("%d ",arr[i-1]);
+//            }
+//        }
+//   }
+//
+//// Main function to run the program
+//int main()
+//{
+//    int arr[] = {4,4,5,6,6,7};
+//    int n = sizeof(arr)/sizeof(arr[0]);
+//
+//   // bubbleSort(arr, n);
+//
+//    findRepeating(arr, n);
+//
+//   return 0;
+//}
+//// Time Complexity : O(N)
+//// Space Complexity : O(1)
+
+
+        //Linear search (multiple index)
+
+//    struct Result{
+//        int numberofmatches;
+//        int indeces[1000];
+//
+//    };
+//    struct Result multipleindecesfunction(int *arr,int n,int key){
+//        struct Result result;
+//        for(int i=0;i<n;i++){
+//
+//            if(arr[i]==key){
+//                result.indeces[result.numberofmatches]=i;
+//                result.numberofmatches++;
+//            }
+//        }
+//        return result;
+//    }
+//    int main(){
+//        int n;
+//        scanf("%d",&n);
+//        int arr[n];
+//        for(int i=0;i<n;i++){
+//            scanf("%d",&arr[i]);
+//        }
+//        int key;
+//        scanf("%d",&key);
+//        struct Result result=multipleindecesfunction(arr,n,key);
+//        for(int i=0;i<result.numberofmatches;i++){
+//            printf("%d ",result.indeces[i]);
+//        }
+//
+//    }
+
+
+
+//    #include<climits>
+//    #include<math.h>
+//
+//    struct Result
+//    {
+//        int distance;
+//        int firstIndex;
+//        int secondIndex;
+//    };
+//
+//struct    Result minimumDistance(int arr[], int n)
+//    {
+//        int minDistance = INT_MAX;
+//        int firstIndex;
+//        int secondIndex;
+//
+//        for(int i=0; i<n; i++)
+//        {
+//            for(int j=i+1; j<n; j++)
+//            {
+//                int distance = abs(arr[i]-arr[j]);
+//                if(distance<minDistance)
+//                {
+//                    minDistance = distance;
+//                    firstIndex = i;
+//                    secondIndex = j;
+//                }
+//            }
+//        }
+//
+//        return {minDistance, firstIndex, secondIndex};
+//    }
+//
+//    int main()
+//    {
+//        int n;
+//        scanf("%d", &n);
+//        int arr[n];
+//        for(int i=0; i<n; i++)
+//            scanf("%d", &arr[i]);
+//
+//        Result result = minimumDistance(arr, n);
+//        printf("Distance: %d\nIndices: %d %d\n", result.distance, result.firstIndex, result.secondIndex);
+//        return 0;
+//    }
+
+
+
+
+
+
+             /*  Linked list */
+             /* Create and Traversal */
+
+//    struct node{
+//        int data;
+//        struct node *next;
+//    };
+//    int main(){
+//        struct node *a=NULL;
+//        struct node *b=NULL;
+//        struct node *c=NULL;
+//
+//        a=(struct node *)malloc(sizeof(struct node));
+//        b=(struct node *)malloc(sizeof(struct node));
+//        c=(struct node *)malloc(sizeof(struct node));
+//
+//        a->data=10;
+//        b->data=20;
+//        c->data=30;
+//
+//        a->next=b;
+//        b->next=c;
+//        c->next=NULL;
+//
+//        while(a!=NULL){
+//            printf("%d->",a->data);
+//            a=a->next;
+//        }
+//    }
+
+
+
+//
+//    struct ListNode
+//    {
+//        int value;
+//       struct ListNode* next;
+//    };
+//
+//  struct  ListNode* head = NULL;
+//  struct  ListNode* tail = NULL;
+//
+//    void printList()
+//    {
+//       struct ListNode* temp = head;
+//
+//        while(temp!=NULL)
+//        {
+//            printf("%d ", temp->value);
+//            temp = temp->next;
+//        }
+//        printf("\n");
+//    }
+//
+//   struct ListNode* createListNode(int data)
+//    {
+//       struct ListNode* temp = (struct ListNode *)malloc(sizeof(struct ListNode));
+//        temp->value = data;
+//        temp->next = NULL;
+//        return temp;
+//    }
+//
+//    void insertLast(int data)
+//    {
+//        if(head==NULL)
+//        {
+//            head = createListNode(data);
+//            tail = head;
+//        }
+//        else
+//        {
+//            struct ListNode* temp = createListNode(data);
+//            tail->next = temp;
+//            tail = tail->next;
+//        }
+//    }
+//
+//    void insertFirst(int data)
+//    {
+//
+//    }
+//
+//    int main()
+//    {
+//
+//
+//        insertLast(2);
+//        insertLast(5);
+//        insertLast(9);
+//        insertLast(7);
+//
+//        printList();
+//    }
+
+
+
+//    struct node{
+//        int data;
+//        struct node *next;
+//    };
+//    int main(){
+//        struct node *a=NULL;
+//        struct node *b=NULL;
+//        struct node *c=NULL;
+//
+//        a=(struct node *)malloc(sizeof(struct node));
+//        b=(struct node *)malloc(sizeof(struct node));
+//        c=(struct node *)malloc(sizeof(struct node));
+//
+//        a->data=10;
+//        b->data=20;
+//        c->data=30;
+//
+//        a->next=b;
+//        b->next=c;
+//        c->next=NULL;
+//
+//        while(a!=NULL){
+//            printf("%d->",a->data);
+//            a=a->next;
+//        }
+//    }
+
+
+
+//        struct node{
+//            int data;
+//            struct node *next;
+//        }* head;
+//        struct node *temp=NULL;
+//        void createLinkList(int data);
+//        void display(int data);
+//        int main(){
+//            int n,data;
+//            scanf("%d",&n);
+//            for(int i=0;i<n;i++){
+//                scanf("%d",&data);
+//            }
+//
+//            createLinkList(data);
+//            display(data);
+//        }
+//       void createLinkList(int value){
+//           head=(struct node*)malloc(sizeof(struct node));
+//           head->data=value;
+//           head->next=NULL;
+//
+//       }
+//       void display(int value){
+//            while(head!=NULL){
+//                printf("%d\n",head->data);
+//                head=head->next;
+//            }
+//       }
+
+
+
+
+
+            /* INSERTION IN A LINKLIST*/
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+void linkedListTraversal(struct Node *ptr)
+{
+    while (ptr != NULL)
+    {
+        printf("Element: %d\n", ptr->data);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+    struct Node *insertAtFirst(struct Node *head,int data){
+        struct Node *ptr=(struct Node*)malloc(sizeof(struct Node));
+        ptr->data=data;
+        ptr->next=head;
+
+        return ptr;
+
+    }
+
+    struct Node *InserInBetween(struct Node *head,int data,int index){
+
+        struct Node *ptr=(struct Node *)malloc(sizeof(struct Node));
+        struct Node *p=head;
+        int i=0;
+        while(i!=index-1){
+           p=p->next;
+           i++;
         }
 
-        int main()
-        {
-            int n;
-            scanf("%d", &n);
-            int arr[n];
-            for(int i=1; i<=n; i++)
-                scanf("%d", &arr[i]);
+        ptr->data=data;
+        ptr->next=p->next;
+        p->next=ptr;
+        return head;
 
-         struct  Result result = linearSearchFunctional(arr, n);
-            for(int i=1; i<result.numberOfMatches; i++)
-            {
-                printf("%d ", result.indices[i]);
-            }
-            return  0;
+    }
+
+    struct Node *InsertAtTheEnd(struct Node *head,int data){
+
+        struct Node *ptr=(struct Node *)malloc(sizeof(struct Node));
+        struct Node *p=head;
+
+        while(p->next!=NULL){
+            p=p->next;
         }
+
+        ptr->data=data;
+        p->next=ptr;
+        ptr->next=NULL;
+        return head;
+    }
+
+
+
+int main()
+{
+    struct Node *head;
+    struct Node *second;
+    struct Node *third;
+    struct Node *fourth;
+
+    // Allocate memory for nodes in the linked list in Heap
+    head = (struct Node *)malloc(sizeof(struct Node));
+    second = (struct Node *)malloc(sizeof(struct Node));
+    third = (struct Node *)malloc(sizeof(struct Node));
+    fourth = (struct Node *)malloc(sizeof(struct Node));
+
+    // Link first and second nodes
+    head->data = 7;
+    head->next = second;
+
+    // Link second and third nodes
+    second->data = 11;
+    second->next = third;
+
+    // Link third and fourth nodes
+    third->data = 41;
+    third->next = fourth;
+
+    // Terminate the list at the third node
+    fourth->data = 66;
+    fourth->next = NULL;
+
+    linkedListTraversal(head);
+   // head=insertAtFirst(head,56);
+   //   head=InserInBetween(head,77,2);
+   head=InsertAtTheEnd(head,99);
+    linkedListTraversal(head);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
