@@ -1473,106 +1473,344 @@
 
             /* INSERTION IN A LINKLIST*/
 
-struct Node
-{
-    int data;
-    struct Node *next;
-};
+//struct Node
+//{
+//    int data;
+//    struct Node *next;
+//};
+//
+//void linkedListTraversal(struct Node *ptr)
+//{
+//    while (ptr != NULL)
+//    {
+//        printf("Element: %d\n", ptr->data);
+//        ptr = ptr->next;
+//    }
+//    printf("\n");
+//}
+//
+//    struct Node *insertAtFirst(struct Node *head,int data){
+//        struct Node *ptr=(struct Node*)malloc(sizeof(struct Node));
+//        ptr->data=data;
+//        ptr->next=head;
+//
+//        return ptr;
+//
+//    }
+//
+//    struct Node *InserInBetween(struct Node *head,int data,int index){
+//
+//        struct Node *ptr=(struct Node *)malloc(sizeof(struct Node));
+//        struct Node *p=head;
+//        int i=0;
+//        while(i!=index-1){
+//           p=p->next;
+//           i++;
+//        }
+//
+//        ptr->data=data;
+//        ptr->next=p->next;
+//        p->next=ptr;
+//        return head;
+//
+//    }
+//
+//    struct Node *InsertAtTheEnd(struct Node *head,int data){
+//
+//        struct Node *ptr=(struct Node *)malloc(sizeof(struct Node));
+//        struct Node *p=head;
+//
+//        while(p->next!=NULL){
+//            p=p->next;
+//        }
+//
+//        ptr->data=data;
+//        p->next=ptr;
+//        ptr->next=NULL;
+//        return head;
+//    }
+//
+//
+//
+//int main()
+//{
+//    struct Node *head;
+//    struct Node *second;
+//    struct Node *third;
+//    struct Node *fourth;
+//
+//    // Allocate memory for nodes in the linked list in Heap
+//    head = (struct Node *)malloc(sizeof(struct Node));
+//    second = (struct Node *)malloc(sizeof(struct Node));
+//    third = (struct Node *)malloc(sizeof(struct Node));
+//    fourth = (struct Node *)malloc(sizeof(struct Node));
+//
+//    // Link first and second nodes
+//    head->data = 7;
+//    head->next = second;
+//
+//    // Link second and third nodes
+//    second->data = 11;
+//    second->next = third;
+//
+//    // Link third and fourth nodes
+//    third->data = 41;
+//    third->next = fourth;
+//
+//    // Terminate the list at the third node
+//    fourth->data = 66;
+//    fourth->next = NULL;
+//
+//    linkedListTraversal(head);
+//   // head=insertAtFirst(head,56);
+//   //   head=InserInBetween(head,77,2);
+//   head=InsertAtTheEnd(head,99);
+//    linkedListTraversal(head);
+//    return 0;
+//}
 
-void linkedListTraversal(struct Node *ptr)
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+struct ListNode
 {
-    while (ptr != NULL)
+    int value;
+    struct ListNode* next;
+};
+typedef struct ListNode ListNode;
+
+ListNode* head = NULL;
+ListNode* tail = NULL;
+
+ListNode* createListNode(int data)
+{
+    ListNode* temp;
+    temp = (ListNode *)malloc(sizeof(ListNode));
+    temp->value = data;
+    temp->next = NULL;
+    return temp;
+}
+
+ListNode* linearSearch(int key)
+{
+    ListNode* i = head;
+    while(i!=NULL)
     {
-        printf("Element: %d\n", ptr->data);
-        ptr = ptr->next;
+        if(i->value==key)
+        {
+            return i;
+        }
+        i=i->next;
+    }
+    return NULL;
+}
+
+void insertFirstElement(int data)
+{
+    head = createListNode(data);
+    tail = head;
+}
+
+void insertLast(int data)
+{
+    if(head==NULL)
+    {
+        insertFirstElement(data);
+    }
+    else
+    {
+        ListNode* temp = createListNode(data);
+        tail->next = temp;
+        tail = tail->next; /// tail = temp;
+    }
+}
+
+void insertFirst(int data)
+{
+    if(head==NULL)
+    {
+        insertFirstElement(data);
+    }
+    else
+    {
+        ListNode* temp = createListNode(data);
+        temp->next = head;
+        head = temp;
+    }
+}
+
+void insertAfter(int data, int key)
+{
+    ListNode* location = linearSearch(key);
+    if(location==NULL)
+        return;
+
+    ListNode* temp = createListNode(data);
+    temp->next = location->next;
+    location->next = temp;
+
+    if(location==tail)
+        tail = tail->next;
+}
+
+void printList()
+{
+    /**
+    /// for printing the elements of an array
+    for(int i=0; i<n; i++)
+    {
+        printf("%d ", arr[i]);
+    }**/
+
+    /** for(ListNode* i=head; i!=NULL; i=i->next)
+    {
+        printf("%d ", i->value);
+    }**/
+    printf("The elements of the Linked List: ");
+    ListNode* i = head;
+    while(i!=NULL)
+    {
+        printf("%d ", i->value);
+        i=i->next;
     }
     printf("\n");
 }
 
-    struct Node *insertAtFirst(struct Node *head,int data){
-        struct Node *ptr=(struct Node*)malloc(sizeof(struct Node));
-        ptr->data=data;
-        ptr->next=head;
-
-        return ptr;
-
+void deleteFirst()
+{
+    if(head==NULL)
+        return;
+    else if(head==tail)
+    {
+        free(head);
+        head = tail = NULL;
     }
+    else
+    {
+        ListNode* temp = head;
+        head = head->next;
+        free(temp);
+    }
+}
 
-    struct Node *InserInBetween(struct Node *head,int data,int index){
-
-        struct Node *ptr=(struct Node *)malloc(sizeof(struct Node));
-        struct Node *p=head;
-        int i=0;
-        while(i!=index-1){
-           p=p->next;
-           i++;
+void deleteLast()
+{
+    if(tail==NULL)
+        return;
+    else if(head==tail)
+    {
+        free(head);
+        head = tail = NULL;
+    }
+    else
+    {
+        ListNode* i = head;
+        while(i->next!=tail)
+        {
+            i = i->next;
         }
-
-        ptr->data=data;
-        ptr->next=p->next;
-        p->next=ptr;
-        return head;
-
+        i->next = NULL;
+        free(tail);
+        tail = i;
     }
+}
 
-    struct Node *InsertAtTheEnd(struct Node *head,int data){
-
-        struct Node *ptr=(struct Node *)malloc(sizeof(struct Node));
-        struct Node *p=head;
-
-        while(p->next!=NULL){
-            p=p->next;
+void deleteKey(int key)
+{
+    if(head==NULL)
+        return;
+    else if(head==tail)
+    {
+        if(head->value==key)
+            deleteFirst();
+    }
+    else
+    {
+        if(head->value==key)
+            deleteFirst();
+        else
+        {
+            ListNode* prevLocation = NULL;
+            ListNode* i = head;
+            while(i!=NULL && i->value!=key)
+            {
+                prevLocation = i;
+                i = i->next;
+            }
+            if(i==NULL)
+                return;
+            else {
+                prevLocation->next = i->next;
+                if(i==tail)
+                    tail = prevLocation;
+                free(i);
+            }
         }
-
-        ptr->data=data;
-        p->next=ptr;
-        ptr->next=NULL;
-        return head;
     }
-
-
+}
 
 int main()
 {
-    struct Node *head;
-    struct Node *second;
-    struct Node *third;
-    struct Node *fourth;
+    insertLast(10);
+    insertLast(15);
+    insertLast(20);
+    insertLast(30);
+    insertLast(45);
+    insertLast(75);
+    insertLast(90);
 
-    // Allocate memory for nodes in the linked list in Heap
-    head = (struct Node *)malloc(sizeof(struct Node));
-    second = (struct Node *)malloc(sizeof(struct Node));
-    third = (struct Node *)malloc(sizeof(struct Node));
-    fourth = (struct Node *)malloc(sizeof(struct Node));
+    printList();
 
-    // Link first and second nodes
-    head->data = 7;
-    head->next = second;
+    insertFirst(100);
+    insertFirst(110);
 
-    // Link second and third nodes
-    second->data = 11;
-    second->next = third;
+    printList();
 
-    // Link third and fourth nodes
-    third->data = 41;
-    third->next = fourth;
+    insertAfter(25, 20);
+    insertAfter(35, 25);
+    printList();
 
-    // Terminate the list at the third node
-    fourth->data = 66;
-    fourth->next = NULL;
+    deleteFirst();
+    printList();
 
-    linkedListTraversal(head);
-   // head=insertAtFirst(head,56);
-   //   head=InserInBetween(head,77,2);
-   head=InsertAtTheEnd(head,99);
-    linkedListTraversal(head);
+    deleteLast();
+    deleteLast();
+    printList();
+
+    deleteKey(100);
+    printList();
+
+    deleteKey(45);
+    printList();
+
+    deleteKey(35);
+    printList();
+
+
+    /**
+    ListNode* searchResult = linearSearch(27);
+    if(searchResult==NULL)
+        printf("Not Found\n");
+    else
+        printf("Found at %d\n", searchResult);
+    **/
+
+    /***
+    printf("Head address: %d\n", head);
+    printf("Head next address: %d\n", head->next);
+
+
+    int arr[10];
+    printf("\n\nFirst element address (array): %d\n", &arr[0]);
+    printf("Second element address (array): %d", &arr[1]);
+    ***/
+
+
+
     return 0;
 }
-
-
-
-
-
 
 
 
